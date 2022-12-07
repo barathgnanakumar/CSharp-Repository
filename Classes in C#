@@ -1,0 +1,165 @@
+1. Static Class:
+
+Code:
+
+using System;
+using System.IO;
+namespace CSharpStaticClass
+{
+    public static class Student
+    {
+        public static string name = "Barath";
+        public static string regno = "21MCA0119";
+        public static string course = "MCA";
+        public static string collegename = "VIT University";
+        public static void details() 
+        {
+            Console.WriteLine("Student Details");
+            Console.WriteLine("-------------------");
+        }
+    }
+    class StaticClass
+    {
+        static void Main(string[] args)
+        {
+            Student.details();
+            Console.WriteLine("Student Name : " +Student.name);
+            Console.WriteLine("Student Regno : " +Student.regno);
+            Console.WriteLine("Course Name : " + Student.course);
+            Console.WriteLine("College Name : "+ Student.collegename);
+            Console.ReadKey();
+        }
+    }
+}
+
+
+2. Abstract Class:
+
+Code:
+
+using System;
+using System.IO;
+namespace CSharpAbstarctClass
+{
+    public abstract class Company
+    {
+        public abstract void display();
+    }
+    public class Intern : Company
+    {
+        public override void display()
+        {
+            Console.WriteLine("Intern Trainees came from different Colleges");
+        }
+    }
+    public class FTE : Company
+    {
+        public override void display()
+        {
+            Console.WriteLine("Full Time Employees are in both Offline and Remote Method");
+        }
+    }
+    public class AbstractClass
+    {
+        static void Main(string[] args)
+        {
+            Company obj1 = new Intern();
+            obj1.display();
+            Company obj2 = new FTE();
+            obj2.display();
+            Console.ReadKey();
+        }
+    }
+}
+
+
+3. Partial Class:
+
+Code:
+
+using System;
+using System.IO;
+namespace PartialClass
+{
+    class class1
+    {
+
+    }
+    public partial class Employee
+    {
+        private int employeeid;
+        private string employeename;
+        public Employee(int employeeid, string employeename)
+        {
+            this.employeeid = employeeid;
+            this.employeename = employeename;
+        }
+        public void display()
+        {
+            Console.WriteLine("Partial Class Practicing");
+            Console.WriteLine("-------------------------");
+        }
+    }
+    public partial class Employee
+    {
+        public void displayDetails()
+        {
+            Console.WriteLine("Employee ID : " + employeeid);
+            Console.WriteLine("Employee Name : " + employeename);
+        }
+    }
+
+    public class Program
+    {
+        static void Main(string[] args)
+        {
+            Employee emp1 = new Employee(101, "Barath");
+            emp1.display();
+            emp1.displayDetails();
+            Console.ReadKey();
+        }
+    }
+}
+
+
+4. Sealed Class:
+
+Code:
+
+using System;
+using System.IO;
+namespace SealedClass
+{
+    sealed class Sealed
+    {
+        int a, b;
+        public void add(int a, int b)
+        {
+            this.a = a;
+            this.b = b;
+            int c = a + b;
+            Console.WriteLine("Sum of Two Numbers : " + c);
+        }
+    }
+    /*public class NewSeal : Sealed
+    {
+        int a, b;
+        public void multiply(int a, int b)
+        {
+            this.a = a;
+            this.b = b;
+            int c = a * b;
+            Console.WriteLine("Two Numbers Multiplied : " + c);
+        }
+    }*/
+    public class Program
+    {
+        static void Main(string[] args)
+        {
+            Sealed seal = new Sealed();
+            seal.add(5, 3);
+       //   seal.multiply(5, 3);
+            Console.ReadKey();
+        }
+    }
+}
